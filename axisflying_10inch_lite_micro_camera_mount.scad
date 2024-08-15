@@ -21,7 +21,7 @@ mountHoleDiameter = 5.45;
 //   }
 // }
 
-diff_cam_loc = 1.84;
+diff_cam_loc = 1.83;
 
 difference() {
     
@@ -29,6 +29,10 @@ difference() {
         translate([0,0,0]) {
           difference() {    
             union() {
+              difference() {
+                translate([-4.23,-13.75,0]) color("red") cube([12.6,13,3], false);
+                translate([-4.8,-12.75,1]) rotate([0,0,34.8])cube([14.85,21,5], true);
+              }
               cylinder(h=heightOfHoleMount, d1=mountHoleDiameter + 3, d2=mountHoleDiameter + 3, center=false, $fn = 100);
               translate([0,-1,0]) { cube([19,widthOfBaseConnector,heightOfBase], false); }
               cube([6.5,4.25,25], false);
@@ -47,6 +51,10 @@ difference() {
         translate([36,0,0]) {
           difference() {
             union() {
+              mirror([1,0,0]) difference() {
+                translate([-4.23,-13.75,0]) color("red") cube([12.6,13,3], false);
+                translate([-4.8,-12.75,1]) rotate([0,0,34.8])cube([14.85,21,5], true);
+              }
               cylinder(h=heightOfHoleMount, d1=mountHoleDiameter + 3, d2=mountHoleDiameter + 3, center=false, $fn = 100);
               translate([-18,-1,0]) { 
                 cube([18,widthOfBaseConnector,heightOfBase], false);
